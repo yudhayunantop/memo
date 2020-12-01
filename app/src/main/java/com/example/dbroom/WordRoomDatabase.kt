@@ -12,6 +12,7 @@ public abstract class WordRoomDatabase : RoomDatabase() {
 
     abstract fun wordDao(): WordDao
 
+    //menambahkan database pada instance program
     companion object{ //singleton prevents multiple instance of database opening at the same time
 
         @Volatile

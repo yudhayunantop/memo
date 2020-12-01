@@ -4,6 +4,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <!--Menambahkan Edit Text Pada Layout-->
     <EditText
         android:id="@+id/edit_word"
         android:layout_width="match_parent"
@@ -17,6 +19,8 @@
         android:inputType="textAutoComplete"
         android:padding="6dp"
         android:textSize="18sp" />
+
+    <!--Menambahkan button untuk save pada layout-->
     <Button
         android:id="@+id/button_save"
         android:layout_width="match_parent"

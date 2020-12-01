@@ -15,13 +15,18 @@ class NewWordActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_word)
+
+        // deklarasi editView dan button save
         editWordView = findViewById(R.id.edit_word)
         val button = findViewById<Button>(R.id.button_save)
+
+        // set result jika text kosong
         button.setOnClickListener{
             if (TextUtils.isEmpty(editWordView.text)){
                 setResult(Activity.RESULT_CANCELED,replyIntent)
             }
 
+            //set result jika text tidak kosong
             else {
                 val word = editWordView.text.toString()
                 replyIntent.putExtra(EXTRA_REPLY,word)
@@ -29,9 +34,12 @@ class NewWordActivity : AppCompatActivity() {
                 Toast.makeText(applicationContext,
                     "Data Tersimpan", Toast.LENGTH_LONG).show()
             }
+            //menutup activity
             finish()
         }
     }
+
+    //deklarasi object
     companion object{
         const val EXTRA_REPLY = "com.example.android.wordlistsql.REPLY"
     }
