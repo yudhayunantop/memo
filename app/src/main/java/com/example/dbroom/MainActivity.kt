@@ -59,8 +59,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
         else {
-            // Toast.makeText(applicationContext,
-            // R.string.empty_not_saved, Toast.LENGTH_LONG).show()
+             Toast.makeText(applicationContext,
+             R.string.empty_not_saved, Toast.LENGTH_LONG).show()
         }
     }
 }
