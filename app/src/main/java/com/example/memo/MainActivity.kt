@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         //menambahkan event pada fab
         val fab = findViewById<FloatingActionButton>(R.id.fab)
         fab.setOnClickListener {
-            val intent = Intent(this@MainActivity,NewWordActivity::class.java)
+            val intent = Intent(this@MainActivity,NewMemoActivity::class.java)
             startActivity(intent)
 
         }

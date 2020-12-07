@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--Menambahkan Edit Text Deskripsi Pada Layout-->
+    <!--Menambahkan Edit Text Judul dan Deskripsi Pada Layout-->
     <EditText
         android:id="@+id/edit_title"
         android:layout_width="match_parent"

@@ -11,7 +11,7 @@ import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 
-class NewWordActivity : AppCompatActivity() {
+class NewMemoActivity : AppCompatActivity() {
 
     private lateinit var editTitle: EditText
     private lateinit var editDescView: EditText

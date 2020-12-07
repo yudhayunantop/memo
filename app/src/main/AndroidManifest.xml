@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DbRoom">
-        <activity android:name="com.example.memo.NewWordActivity"></activity>
+        <activity android:name="com.example.memo.NewMemoActivity"></activity>
         <activity android:name="com.example.memo.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
