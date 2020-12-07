@@ -1,7 +1,9 @@
 <resources>
-    <string name="app_name">Praktikum DBRoom</string>
-    <string name="hint_word">Kata...</string>
+    <string name="app_name">Memo</string>
     <string name="button_save">Simpan</string>
     <string name="empty_not_saved">Kata tidak dapat disimpan Karena kosong.</string>
     <string name="Hapus">Seluruh Data Telah Dihapus</string>
+    <string name="masukkan_judul">Masukkan Judul...</string>
+    <string name="masukkan_deskripsi">Masukkan Deskripsi...</string>
+    <string name="hapus_semua">Hapus Semua</string>
 </resources>

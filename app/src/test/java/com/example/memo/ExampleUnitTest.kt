@@ -1,4 +1,4 @@
-package com.example.dbroom
+package com.example.memo
 
 import org.junit.Test
 

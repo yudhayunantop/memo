@@ -1,4 +1,4 @@
-package com.example.dbroom
+package com.example.memo
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
@@ -8,13 +8,13 @@ import androidx.room.Query
 
 // Deklarasi query untuk data access object pada interface
 @Dao
-interface WordDao {
-    @Query("SELECT * FROM word_table ORDER BY word ASC")
-    fun getAlphabetizedWords(): LiveData<List<Word>>
+interface MemoDao {
+    @Query("SELECT * FROM memo_table ORDER BY title ASC")
+    fun getAlphabetizedWords(): LiveData<List<Memo>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insert(word: Word)
+    suspend fun insert(memo: Memo)
 
-    @Query("DELETE FROM word_table")
+    @Query("DELETE FROM memo_table")
     suspend fun deleteAll()
 }

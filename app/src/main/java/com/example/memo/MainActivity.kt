@@ -1,6 +1,5 @@
-package com.example.dbroom
+package com.example.memo
 
-import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,8 +13,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var wordViewModel: WordViewModel
-    private val newWordActivityRequestCode = 1
+    private lateinit var memoViewModel: MemoViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,20 +21,21 @@ class MainActivity : AppCompatActivity() {
 
         //deklarasi adapter dan recyclerView
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
-        val adapter = WordListAdapter(this)
+        val adapter = MemoListAdapter(this)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         // deklarasi viewModel
-        wordViewModel = ViewModelProvider(this).get(WordViewModel::class.java)
+        memoViewModel = ViewModelProvider(this).get(MemoViewModel::class.java)
 
         // panggil data dari db
-        wordViewModel.allWords.observe(this, Observer { words ->
-            words?.let {
-                adapter.setWords(it)
+        memoViewModel.allWords.observe(this, Observer { memo ->
+            memo?.let {
+                adapter.setMemos(it)
                 adapter.setOnClickListener {
-                    val current = words[it]
-                    Toast.makeText(this, "Namanya "+ current.word , Toast.LENGTH_SHORT).show()
+                    val current = memo[it]
+                    Toast.makeText(this, current.titleMemo , Toast.LENGTH_SHORT).show()
+                    // intent ke detail
                 }
             }
 
@@ -46,34 +45,18 @@ class MainActivity : AppCompatActivity() {
         val fab = findViewById<FloatingActionButton>(R.id.fab)
         fab.setOnClickListener {
             val intent = Intent(this@MainActivity,NewWordActivity::class.java)
-            startActivityForResult(intent,newWordActivityRequestCode)
+            startActivity(intent)
 
         }
 
         //menambahkan hapus pada button
         val del = findViewById<Button>(R.id.btnhapus)
         del.setOnClickListener{
-            wordViewModel.deleteALL()
+            memoViewModel.deleteALL()
             Toast.makeText(applicationContext,
                 R.string.Hapus, Toast.LENGTH_LONG).show()
 
         }
 
-    }
-
-    override fun onActivityResult(requestCode: Int,     resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        //menambahkan data ke db
-        if (requestCode == newWordActivityRequestCode && resultCode == Activity.RESULT_OK) {
-            data?.getStringExtra(NewWordActivity.EXTRA_REPLY)?.let   {
-                val word = Word(it)
-                wordViewModel.insert(word)
-            }
-        }
-        else {
-             Toast.makeText(applicationContext,
-             R.string.empty_not_saved, Toast.LENGTH_LONG).show()
-        }
     }
 }
