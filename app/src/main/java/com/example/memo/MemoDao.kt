@@ -12,9 +12,9 @@ interface MemoDao {
     @Query("SELECT * FROM memo_table ORDER BY title ASC")
     fun getAlphabetizedWords(): LiveData<List<Memo>>
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insert(memo: Memo)
+    @Insert
+    fun insert(memo: Memo)
 
     @Query("DELETE FROM memo_table")
-    suspend fun deleteAll()
+    fun deleteAll()
 }
